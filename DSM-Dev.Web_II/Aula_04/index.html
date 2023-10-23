@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 04 - v-bind e v-on</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+  </head>
+  <body>
+    <div id="app">
+      <h1 v-once>Trabalhando com {{titulo}}, v-bind</h1> <!-- O v-once ele trava o elemento, dessa forma ele não irá atualizar com a função alterarValor, e tambem voce não precisa criar outro elemento 'data' -->
+      <a :href="link" target="_blank">Google</a> <!-- Os dois pontos é basicamente a mesma coisa que ter escrito "v-bind:", porem deixa o código mais clean -->
+      <h1>Trabalhando com v-on</h1>
+      <input type="text" v-label="titulo" v-model="caixaText"> <!-- v-model é como se fosse um id -->
+      <button @:click="alterarValor">Enviar</button>
+      <br>
+      <span>{{titulo}}</span>
+      <h1>Soma</h1>
+      <p>Número 1</p>
+      <input type="text" v-model="num1">
+      <p>Número 2</p>
+      <input type="text" v-model="num2">
+      <br><br>
+      <button @click="Soma">Somar</button> <!--@click é a mesma coisa que o v-on -->
+      <br>
+      <span>O resultado da soma é = {{resultado}}</span>
+    </div>
+  </body>
+</html>
+
+<script>
+  const {createApp} = Vue;
+
+  createApp({
+    data(){
+      return{
+        titulo: 'Links',
+        link: 'http://google.com',
+        caixaText: '',
+        num1: 0,
+        num2: 0,
+        resultado: 0,
+      }
+    },
+    
+    methods: {
+      alterarValor: function() {
+        this.titulo = this.caixaText;
+        this.caixaText = 'Texto atualizado!';
+      },
+      Soma: function() {
+        this.resultado = parseInt(this.num1) + parseInt(this.num2);
+      }
+    }
+  }).mount('#app')
+</script>

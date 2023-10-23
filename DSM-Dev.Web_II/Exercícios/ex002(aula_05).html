@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 02</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  </head>
+  <body>
+    <div id="app">
+      <button @click="teste">{{ isImgAtiva ? 'Acender' : 'Apagar' }}</button>
+      <img v-if="isImgAtiva" src="./img/Off.png" width="300">
+      <img v-else="isImgAtiva" src="./img/On.png" width="300">
+    </div>
+  </body>
+</html>
+
+<script>
+  const {createApp} = Vue;
+
+  createApp({
+    data() {
+      return {
+        isImgAtiva: false,
+      }
+    },
+
+    methods: {
+      teste: function() {
+        this.isImgAtiva = !this.isImgAtiva;
+      }
+    }
+  }).mount("#app")
+</script>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #app {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 48.4px;
+  }
+
+  button {
+    font-family: Arial;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #7d7d7d;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+  }
+</style>

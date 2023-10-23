@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 03 - Intro Vue</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{title}}</h1>
+      <p>{{msg}}</p>
+      <h2>Olá {{name}}, você está logado!</h2>
+      <p>{{testFunc()}}</p>
+      <p>A soma dos valores 2 e 5 é igual a: {{soma()}}</p>
+    </div>
+  </body>
+</html>
+
+<script>
+  const {createApp} = Vue;
+
+  createApp({
+    data(){
+      return {
+        title: 'Primeira aula de Vue!!!',
+        msg: 'Estamos utilizando Vue3.',
+        name: 'Victor',
+      }
+    },
+    methods: {
+      testFunc: () => {
+        return 'Este é o retorno da função :-)'
+      },
+
+      soma: () => {
+        let x = 2;
+        let y = 5;
+        return x + y;
+      }
+    }
+  }).mount("#app");
+</script>

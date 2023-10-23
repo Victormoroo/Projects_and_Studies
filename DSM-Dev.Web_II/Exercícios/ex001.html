@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 01</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <h2>Alerta com Vue</h2>
+        <button @click="clickButton()">Clique aqui</button>
+      </div>
+
+      <div>
+        <h2>Imagem com Vue</h2>
+        <img :src="img" width="400">
+      </div>
+
+      <div>
+        <h2>Classe CSS</h2>
+        <button @click="buttonCSS" :class="classcss">Não clique aqui</button>
+      </div>
+
+      <div>
+        <h2>Mostrar/Ocultar um elemento</h2>
+        <button @click="toggle">Mostar/Ocultar</button>
+        <div v-if="ocult">
+          <p>Este elemento deve ser mostrado/ocultado!</p>
+        </div>
+      </div>
+
+      <div>
+        <h2>Outra forma de mostrar/ocultar um elemento</h2>
+        <button @click="toggleMsg">{{isMsgAtiva ? 'Fechar MSG' : 'Abrir MSG'}}</button>
+        <span v-if="isMsgAtiva">Olá, deu certo!!!</span>
+        <span v-else="isMsgAtiva"> A variável eh falsa</span>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const {createApp} = Vue
+
+  createApp({
+    data() {
+      return {
+        img: 'https://sm.ign.com/ign_br/screenshot/default/images-59_wzgh.jpg',
+        classcss: 'classecss',
+        ocult: true,
+        isMsgAtiva: false
+      }
+    },
+
+    methods: {
+      clickButton() {
+        alert('Hello World!')
+      },
+
+      buttonCSS() {
+        alert('EU FALEI PRA NÃO CLICAR, SEU TEIMOSO!')
+      },
+
+      clickcss() {
+        alert('Botão estilizado com Vue!')
+      },
+
+      toggle() {
+        this.ocult = !this.ocult;
+      },
+
+      toggleMsg: function() {
+        this.isMsgAtiva = !this.isMsgAtiva;
+      }
+    }
+  }).mount('#app')
+</script>
+
+<style>
+  :root {
+    --dark-gray: #505050;
+    --gray: #7d7d7d;
+  }
+
+  .classecss {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--gray);
+    padding: 10px;
+    cursor: pointer;
+    margin: 0 20px;
+    transition: transform .2s;
+  }
+
+  .classecss:hover {
+    background-color: var(--dark-gray);
+    transform: scale(1.1);
+  }
+
+  span {
+    margin-left: 2rem;
+  }
+</style>
