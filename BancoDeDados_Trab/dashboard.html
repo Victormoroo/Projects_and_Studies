@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sistema Fatec Franca - 2023</title> <!-- Titulo da pagina -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css"
+    /> <!-- links para os arquivos CSS necessários -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!-- A tag "body" contém o conteúdo da página, incluindo um cabeçalho e uma seção principal. A seção principal contém dois botões dentro de um contêiner. -->
+  <body>
+    <header>
+      <h1>Sistema Fatec Franca - 2023</h1>
+    </header>
+    <main>
+      <div class="container">
+        <button @click="goToCadastroAlunos">Cadastro de Alunos</button> <!-- botao para cadastrar Alunos -->
+        <button @click="goToBuscaAlunos">Busca de Alunos</button> <!-- botao para buscar Alunos -->
+        <button @click="goToCadastroProfessores">Cadastro de Professores</button> <!-- botao para buscar Alunos -->
+        <button @click="goToBuscaProfessores">Busca de Professores</button> <!-- botao para buscar Alunos -->
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  </body>
+</html>
+
+<script>
+  // inclui o código JavaScript do Vue.js que adiciona a funcionalidade dos botões. O objeto Vue é criado com um elemento DOM chamado "main", que é onde a página principal é exibida. Em seguida, são definidos dois métodos que são acionados quando os botões são clicados. Cada método abre uma nova página em uma nova guia do navegador usando a função "window.open()".
+  new Vue({
+    el: "main",
+    methods: {
+      goToCadastroAlunos() {
+        window.open("cadastroAlunos.html", "_blank");
+      },
+      goToBuscaAlunos() {
+        window.open("buscaAlunos.html", "_blank");
+      },
+      goToCadastroProfessores() {
+        window.open("cadastroProfessores.html", "_blank");
+      },
+      goToBuscaProfessores() {
+        window.open("buscaProfessores.html", "_blank");
+      },
+    },
+  });
+</script>
