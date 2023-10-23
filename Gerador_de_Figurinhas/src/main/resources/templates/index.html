@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Figurinhas</title>
+</head>
+<body>
+<h1>Gerador de Figurinhas</h1>
+<form action="/generate" method="POST">
+    <label for="imageUrl">URL da imagem:</label>
+    <input type="text" id="imageUrl" name="imageUrl" required>
+    <br><br>
+    <label for="text">Texto na figurinha:</label>
+    <input type="text" id="text" name="text" required>
+    <br><br>
+    <label for="stickerName">Nome do arquivo:</label>
+    <input type="text" id="stickerName" name="stickerName" required>
+    <br><br>
+
+    <input type="submit" value="Gerar Figurinha">
+</form>
+
+<br>
+<p th:text="${message}"></p>
+</body>
+</html>
